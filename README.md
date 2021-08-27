@@ -23,7 +23,7 @@ To start server
 <li> Launch Insomnia to acheive CRUD operations on the Back-End Commerce Site </li> </ol>
     
 ## Usage
-![Image] (Assets/Screenshot.png) 
+![Image] (./Assets/Screenshot.png) 
 Use CRUD operations for this Back-End Ecommerce Site
 
 <a href = "https://youtu.be/jhacEBA7jFA"> Link to Youtube Video </a>
