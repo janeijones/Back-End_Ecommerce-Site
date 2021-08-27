@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
       res.status(404).json({
         message: 'Tags not found'
       })
-      return
+      return;
     } else {
         //tags found
       res.status(200).json(findTags)
@@ -48,7 +48,7 @@ router.get('/:id', (req, res) => {
       res.status(404).json({
         message: 'Tag not found!'
       })
-      return
+      return;
     } else {
       res.status(200).json(getTag)
     }
@@ -62,12 +62,12 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   try {
-    const newTag = await Tag.create({
+    const createTag = await Tag.create({
       tag_name: req.body.tag_name
     })
 
     //  tag created 
-    res.status(200).json(newTag)
+    res.status(200).json(createTag)
   } catch (err) {
 
     // show error
@@ -88,7 +88,7 @@ router.put('/:id', (req, res) => {
       res.status(404).json({
         message: 'Unable to update: Tag not found!'
       })
-      return
+      return;
     } else {
         //update tag
       res.status(200).json(updateTag)
@@ -101,7 +101,26 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  try {
+    // delete on tag by its `id` value
+    const deleteTag = await Tag.destroy({
+      where: {
+        id: req.params.id,
+      }
+    })
+
+    if (!deleteTag){
+      res.status(404).json({
+        message: 'Unable to delete: no tag found!'
+      })
+      return;
+    } else {
+      res.status(200).json(deleteTag)
+    }
+  } catch (err) {
+    // error handling
+    res.status(500).json(err)
+  }
 });
 
 module.exports = router;
