@@ -22,7 +22,7 @@ try {
       res.status(404).json({
         message: 'Categories not found!'
       })
-      return
+      return;
     } else {
       //find all categories
       res.status(200).json(findAllCategories)
@@ -36,6 +36,28 @@ try {
 router.get('/:id', (req, res) => {
   // find one category by its `id` value
   // be sure to include its associated Products
+  try {
+    const findCategory = await Category.findByPk( req.params.id, {
+      include: {
+        model: Product,
+      },
+    })
+    //if cannot find category
+    if (!findCategory){
+      res.status(404).json({
+        message: 'Category cannot be found!'
+      })
+      return;
+    } else {
+
+      // find category
+      res.status(200).json(findCategory)
+    }
+  } catch (err) {
+
+    // Error response
+    res.status(500).json(err)
+  }
 });
 
 router.post('/', (req, res) => {
@@ -66,7 +88,7 @@ router.put('/:id', (req, res) => {
       res.status(404).json({
         message: 'Category cannot be updated!'
       })
-      return
+      return;
     } else {
       //else, update category
       res.status(200).json(updateCategory)
