@@ -1,7 +1,7 @@
 # Back-End E-commerce Site [![License](https://img.shields.io/badge/License-MIT-pink.svg)](https://opensource.org/licenses/MIT) 
                        
 ## Description
-Ecommerce site
+Ecommerce site used for CRUD operations. Create, Update, Put, and Delete using Insomnia with relationship models Categories, Tags, and Products.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -23,7 +23,7 @@ To start server
 <li> Launch Insomnia to acheive CRUD operations on the Back-End Commerce Site </li> </ol>
     
 ## Usage
-![Image] (./Assets/Screenshot.png) 
+![Screenshot] (Assets/Screenshot.png) 
 Use CRUD operations for this Back-End Ecommerce Site
 
 <a href = "https://youtu.be/jhacEBA7jFA"> Link to Youtube Video </a>
