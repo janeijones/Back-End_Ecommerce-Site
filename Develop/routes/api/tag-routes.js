@@ -16,14 +16,18 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new tag
-  Tag.create({
-    tag_name: req.body.tag_name
-  }) 
-  .then(tag => res.json(tag))
-  .catch((err) => {
-    console.log(err);
-    res.status(400).json(err);
-  });
+  try {
+    const newTag = await Tag.create({
+      tag_name: req.body.tag_name
+    })
+
+    //  tag created 
+    res.status(200).json(newTag)
+  } catch (err) {
+
+    // show error
+    res.status(500).json(err)
+  }
 });
 
 router.put('/:id', (req, res) => {
