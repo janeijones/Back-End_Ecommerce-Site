@@ -6,8 +6,33 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
-  Category.findAll();
-  
+  //Category.findAll();
+try {
+    const findAllCategories = await Category.findAll({
+      include: {
+        model: Product,
+      },
+      attributes: [
+        'id',
+        'category_name'
+      ]
+    })
+
+    if (!findAllCategories){ //if cannot find all categories 
+      res.status(404).json({
+        message: 'Categories not found!'
+      })
+      return
+    } else {
+      //find all categories
+      res.status(200).json(findAllCategories)
+    }
+  } catch (err) {
+
+    //error handling
+    res.status(500).json(err)
+  }
+
 });
 
 router.get('/:id', (req, res) => {
@@ -25,6 +50,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  Category.destroy({ where: { id: req.params.id}}).then((delete))
 });
 
 module.exports = router;
