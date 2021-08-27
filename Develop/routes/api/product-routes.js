@@ -7,12 +7,60 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
+try {
+    const findAllProducts = await Product.findAll({
+      include: [
+        {
+        model: Category,
+        }, 
+        {
+        model: Tag,
+        }
+      ],
+      attributes: [
+        'id',
+        'product_name',
+        'price',
+        'stock'
+      ]
+    })
+
+    // all products successfully found
+    res.status(200).json(findAllProducts)
+  } catch (err) {
+    //error handling
+    res.status(500).json(err)
+  }
 });
 
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
+  try {
+    const findProduct = await Product.findAll({
+      include: [
+        {
+        model: Category,
+        }, 
+        {
+        model: Tag,
+        }
+      ],
+      attributes: [
+        'id',
+        'product_name',
+        'price',
+        'stock'
+      ]
+    })
+
+    // respond with product found
+    res.status(200).json(findProduct)
+  } catch (err) {
+    //error handling
+    res.status(500).json(err)
+  }
 });
 
 // create new product
@@ -91,6 +139,27 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  try {
+    const deleteProduct = await Product.destroy({
+      where: {
+        id: req.params.id,
+      }
+    })
+
+    // if unable to delete
+    if (!deleteProduct){
+      res.status(404).json({
+        message: 'Unable to delete product!'
+      })
+      return;
+    } else {
+      // respond with product removed
+      res.status(200).json(deleteProduct)
+    }
+  } catch (err) {
+    // Error handling
+    res.status(500).json(err)
+  }
 });
 
 module.exports = router;
