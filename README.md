@@ -12,7 +12,7 @@ Ecommerce site
 
 ## Installation
 In Terminal:
-<ul>
+<ol>
 <li>npm i </li>
 <li> mysql -u root -p </li>
 Enter your password
@@ -20,11 +20,13 @@ Enter your password
 to exit mySQL
 <li> npm run watch </li>
 To start server
-<li> Launch Insomnia to acheive CRUD operations on the Back-End Commerce Site </li> </ul>
+<li> Launch Insomnia to acheive CRUD operations on the Back-End Commerce Site </li> </ol>
     
 ## Usage
-![Giphy] (./Assets/Screenshot.png) 
-<a href = "https://youtu.be/jhacEBA7jFA" Link to Youtube Video </a>
+![Image] (Assets/Screenshot.png) 
+Use CRUD operations for this Back-End Ecommerce Site
+
+<a href = "https://youtu.be/jhacEBA7jFA"> Link to Youtube Video </a>
 
 
 ## License [![License](https://img.shields.io/badge/License-MIT-pink.svg)](https://opensource.org/licenses/MIT)
@@ -33,5 +35,3 @@ To start server
 
 ## Questions
 <ul> <li><a href = "https://github.com/janeijones">GitHub Profile </li>
-<li> <a href = "https://none">Visit Deployed Website</li>
-<li>Email: none </li>
