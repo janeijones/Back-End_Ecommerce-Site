@@ -6,7 +6,6 @@ Ecommerce site used for CRUD operations. Create, Update, Put, and Delete using I
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
 - [License](#license)
 - [Questions](#questions)
 
@@ -23,7 +22,7 @@ To start server
 <li> Launch Insomnia to acheive CRUD operations on the Back-End Commerce Site </li> </ol>
     
 ## Usage
-![Screenshot] (../Assets/Screenshot.png) 
+![Screenshot](/Assets/Screenshot.png) 
 Use CRUD operations for this Back-End Ecommerce Site
 
 <a href = "https://youtu.be/jhacEBA7jFA"> Link to Youtube Video </a>
